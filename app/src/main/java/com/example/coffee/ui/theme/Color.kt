@@ -25,3 +25,5 @@ val Active = Color(0xFF35764A)
 val Passive = Color(0xFF424C45)
 
 val GreyA = Color(0xFFAAAAAA)
+val AnotherGrey = Color(0xFFC1C7D0)
+val AnotherOne = Color(0xFFB7BBC9)

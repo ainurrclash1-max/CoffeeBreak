@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Coffee</string>
+    <string name="title_activity_two_factor">TwoFactor</string>
 </resources>

@@ -7,6 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.snapping.SnapPosition
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -21,12 +22,13 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.TextFieldDefaults.indicatorLine
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -38,30 +40,33 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.coffee.R
-import com.example.coffee.ui.theme.AnotherGrey
+import com.example.coffee.presentation.auth.ui.theme.CoffeeTheme
+import com.example.coffee.ui.theme.AnotherOne
 import com.example.coffee.ui.theme.GreenLight
-import com.example.coffee.ui.theme.Grey
 import com.example.coffee.ui.theme.White
 import com.example.coffee.ui.theme.robotoFamily
 
-class Welcome : ComponentActivity() {
+class TwoFactor : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            ForgotPassword()
+            OtpVer()
         }
     }
 }
 
-@Preview
 @Composable
-fun ForgotPassword() {
+@Preview
+fun OtpVer() {
+    val interactionSource = remember { MutableInteractionSource() }
     val context = LocalContext.current
 
-    Column(modifier = Modifier
-        .fillMaxSize()
-        .background(color = White)) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(color = White)
+    ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -79,45 +84,87 @@ fun ForgotPassword() {
                 .fillMaxWidth()
                 .padding(top = 120.dp, start = 41.dp)
         ) {
-            Text(text = "Забыли пароль?\n",
+            Text(
+                text = "Проверка\n",
                 fontSize = 22.sp,
                 fontFamily = robotoFamily,
                 fontWeight = FontWeight.Normal,
                 color = GreenLight
             )
 
-            Text(text = "Введите адрес электронной почты",
+            Text(
+                text = "Введите код, который мы вам отправили",
                 fontSize = 14.sp,
                 fontFamily = robotoFamily,
                 fontWeight = FontWeight.Normal
             )
             Spacer(modifier = Modifier.padding(bottom = 57.dp))
-            TextField(state = rememberTextFieldState(""),
-                leadingIcon = {
-                    Icon(
-                        painter = painterResource(R.drawable.email),
-                        contentDescription = ""
-                    )
-                },
-                placeholder = {
-                    Text(text = "Адрес электронной почты",
-                        fontSize = 12.sp,
-                        fontFamily = robotoFamily,
-                        fontWeight = FontWeight.Normal,
-                        color = Grey
-                    )
-                },
+        }
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center
+        ) {
+            TextField(
+                state = rememberTextFieldState(), modifier = Modifier
+                    .size(height = 61.dp, width = 48.dp)
+                    .clip(shape = RoundedCornerShape(10.dp)),
                 colors = TextFieldDefaults.colors(
-                    unfocusedContainerColor = White,
-                    focusedContainerColor = White,
-                    errorContainerColor = White,
-                    focusedIndicatorColor = AnotherGrey,
-                    unfocusedIndicatorColor = AnotherGrey
-                ),
-
+                    focusedIndicatorColor = AnotherOne,
+                    unfocusedIndicatorColor = AnotherOne,
+                    focusedContainerColor = AnotherOne,
+                    unfocusedContainerColor = AnotherOne
+                )
+            )
+            Spacer(modifier = Modifier.padding(end = 22.dp))
+            TextField(
+                state = rememberTextFieldState(), modifier = Modifier
+                    .size(height = 61.dp, width = 48.dp)
+                    .clip(shape = RoundedCornerShape(10.dp)),
+                colors = TextFieldDefaults.colors(
+                    focusedIndicatorColor = AnotherOne,
+                    unfocusedIndicatorColor = AnotherOne,
+                    focusedContainerColor = AnotherOne,
+                    unfocusedContainerColor = AnotherOne
+                )
+            )
+            Spacer(modifier = Modifier.padding(end = 22.dp))
+            TextField(
+                state = rememberTextFieldState(), modifier = Modifier
+                    .size(height = 61.dp, width = 48.dp)
+                    .clip(shape = RoundedCornerShape(10.dp)),
+                colors = TextFieldDefaults.colors(
+                    focusedIndicatorColor = AnotherOne,
+                    unfocusedIndicatorColor = AnotherOne,
+                    focusedContainerColor = AnotherOne,
+                    unfocusedContainerColor = AnotherOne
+                )
+            )
+            Spacer(modifier = Modifier.padding(end = 22.dp))
+            TextField(
+                state = rememberTextFieldState(), modifier = Modifier
+                    .size(height = 61.dp, width = 48.dp)
+                    .clip(shape = RoundedCornerShape(10.dp)),
+                colors = TextFieldDefaults.colors(
+                    focusedIndicatorColor = AnotherOne,
+                    unfocusedIndicatorColor = AnotherOne,
+                    focusedContainerColor = AnotherOne,
+                    unfocusedContainerColor = AnotherOne
+                )
             )
         }
-        Spacer(modifier = Modifier.padding(bottom = 153.dp))
+        Spacer(modifier = Modifier.padding(bottom = 46.dp))
+        Column(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = "Выслать заново через 00:30",
+                fontSize = 14.sp,
+                fontFamily = robotoFamily,
+                fontWeight = FontWeight.Normal
+            )
+        }
+        Spacer(modifier = Modifier.padding(bottom = 62.dp))
         Column(modifier = Modifier.fillMaxWidth().padding(end = 47.dp),
             horizontalAlignment = Alignment.End) {
             Box(modifier = Modifier.clip(RoundedCornerShape(100))
