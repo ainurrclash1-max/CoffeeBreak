@@ -74,8 +74,7 @@ fun OtpVer() {
         ) {
             IconButton(onClick = {}) {
                 Icon(
-                    painter = painterResource(R.drawable.arrowback),
-                    contentDescription = ""
+                    painter = painterResource(R.drawable.arrowback), contentDescription = ""
                 )
             }
         }
@@ -101,11 +100,11 @@ fun OtpVer() {
             Spacer(modifier = Modifier.padding(bottom = 57.dp))
         }
         Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.Center
+            modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center
         ) {
             TextField(
-                state = rememberTextFieldState(), modifier = Modifier
+                state = rememberTextFieldState(),
+                modifier = Modifier
                     .size(height = 61.dp, width = 48.dp)
                     .clip(shape = RoundedCornerShape(10.dp)),
                 colors = TextFieldDefaults.colors(
@@ -117,7 +116,8 @@ fun OtpVer() {
             )
             Spacer(modifier = Modifier.padding(end = 22.dp))
             TextField(
-                state = rememberTextFieldState(), modifier = Modifier
+                state = rememberTextFieldState(),
+                modifier = Modifier
                     .size(height = 61.dp, width = 48.dp)
                     .clip(shape = RoundedCornerShape(10.dp)),
                 colors = TextFieldDefaults.colors(
@@ -129,7 +129,8 @@ fun OtpVer() {
             )
             Spacer(modifier = Modifier.padding(end = 22.dp))
             TextField(
-                state = rememberTextFieldState(), modifier = Modifier
+                state = rememberTextFieldState(),
+                modifier = Modifier
                     .size(height = 61.dp, width = 48.dp)
                     .clip(shape = RoundedCornerShape(10.dp)),
                 colors = TextFieldDefaults.colors(
@@ -141,7 +142,8 @@ fun OtpVer() {
             )
             Spacer(modifier = Modifier.padding(end = 22.dp))
             TextField(
-                state = rememberTextFieldState(), modifier = Modifier
+                state = rememberTextFieldState(),
+                modifier = Modifier
                     .size(height = 61.dp, width = 48.dp)
                     .clip(shape = RoundedCornerShape(10.dp)),
                 colors = TextFieldDefaults.colors(
@@ -154,8 +156,7 @@ fun OtpVer() {
         }
         Spacer(modifier = Modifier.padding(bottom = 46.dp))
         Column(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalAlignment = Alignment.CenterHorizontally
+            modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
                 text = "Выслать заново через 00:30",
@@ -165,16 +166,30 @@ fun OtpVer() {
             )
         }
         Spacer(modifier = Modifier.padding(bottom = 62.dp))
-        Column(modifier = Modifier.fillMaxWidth().padding(end = 47.dp),
-            horizontalAlignment = Alignment.End) {
-            Box(modifier = Modifier.clip(RoundedCornerShape(100))
-                .size(64.dp)
-                .background(color = GreenLight)
-                .clickable(enabled = true, onClick = { context.startActivity(Intent(context,
-                    TwoFactor::class.java)) })) {
-                Column(modifier = Modifier.fillMaxSize(),
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(end = 47.dp),
+            horizontalAlignment = Alignment.End
+        ) {
+            Box(
+                modifier = Modifier
+                    .clip(RoundedCornerShape(100))
+                    .size(64.dp)
+                    .background(color = GreenLight)
+                    .clickable(enabled = true, onClick = {
+                        context.startActivity(
+                            Intent(
+                                context, Menu::class.java
+                            )
+                        )
+                    })
+            ) {
+                Column(
+                    modifier = Modifier.fillMaxSize(),
                     verticalArrangement = Arrangement.Center,
-                    horizontalAlignment = Alignment.CenterHorizontally) {
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
                     Icon(
                         painter = painterResource(R.drawable.arrownext),
                         contentDescription = "",
