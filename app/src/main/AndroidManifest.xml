@@ -30,6 +30,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".presentation.auth.Welcome" />
+        <activity android:name=".presentation.auth.Menu"/>
+        <activity android:name=".presentation.auth.Profile"/>
+        <activity android:name=".presentation.auth.QrCode"/>
+        <activity android:name=".presentation.auth.Reward"/>
     </application>
 
 </manifest>
