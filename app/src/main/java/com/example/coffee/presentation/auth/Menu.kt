@@ -119,7 +119,7 @@ fun MenuScreen() {
                     )
                 )
                 .background(color = DarkBlue),
-            colors = CardDefaults.cardColors(containerColor = DarkBlue)
+            colors = CardDefaults.cardColors(containerColor = DarkBlue),
         ) {
             Column(
                 modifier = Modifier
@@ -268,6 +268,7 @@ fun MenuScreen() {
                                 .size(154.dp, 164.dp)
                                 .clip(RoundedCornerShape(15.dp)),
                             colors = CardDefaults.cardColors(containerColor = White),
+                            onClick = { context.startActivity(Intent(context, OrderOptionsCap::class.java)) }
                         ) {
                             Column(
                                 modifier = Modifier

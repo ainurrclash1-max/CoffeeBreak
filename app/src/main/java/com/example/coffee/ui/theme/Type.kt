@@ -46,9 +46,13 @@ val redressedFamily = FontFamily(
 )
 
 val dmsansFamily = FontFamily(
-    Font(R.font.dmsans, FontWeight.Normal)
+    Font(R.font.dmsans)
 )
 
 val robotoFamily = FontFamily(
-    Font(R.font.roboto, FontWeight.Normal)
+    Font(R.font.roboto)
+)
+
+val montserratFamily = FontFamily(
+    Font(R.font.montserrat)
 )

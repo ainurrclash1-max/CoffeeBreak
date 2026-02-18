@@ -34,6 +34,9 @@
         <activity android:name=".presentation.auth.Profile"/>
         <activity android:name=".presentation.auth.QrCode"/>
         <activity android:name=".presentation.auth.Reward"/>
+        <activity android:name=".presentation.auth.OrderOptionsCap"/>
+        <activity android:name=".presentation.auth.Designer"/>
+        <activity android:name=".presentation.auth.Barista"/>
     </application>
 
 </manifest>
