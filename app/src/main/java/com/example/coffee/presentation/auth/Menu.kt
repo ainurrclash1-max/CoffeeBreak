@@ -25,10 +25,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.dropShadow
+import androidx.compose.ui.graphics.shadow.Shadow
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.coffee.R
@@ -38,6 +41,7 @@ import com.example.coffee.ui.theme.DarkBlue
 import com.example.coffee.ui.theme.Grey
 import com.example.coffee.ui.theme.GreyLight
 import com.example.coffee.ui.theme.GreyLighter
+import com.example.coffee.ui.theme.NoName
 import com.example.coffee.ui.theme.White
 import com.example.coffee.ui.theme.dmsansFamily
 import com.example.coffee.ui.theme.poppinsFamily
@@ -86,7 +90,7 @@ fun MenuScreen() {
                 )
             }
             Row {
-                IconButton(onClick = { }, modifier = Modifier.padding(end = 0.dp)) {
+                IconButton(onClick = { context.startActivity(Intent(context, MyOrderCurrent::class.java)) }, modifier = Modifier.padding(end = 0.dp)) {
                     Icon(
                         painterResource(R.drawable.cart),
                         contentDescription = "",
@@ -399,8 +403,17 @@ fun MenuScreen() {
                 ) {
                     Card(
                         modifier = Modifier
+                            .dropShadow(shape = RoundedCornerShape(20.dp),
+                                shadow = Shadow(
+                                    radius = 20.dp,
+                                    color = NoName,
+                                    alpha = 0.12F,
+                                    offset = DpOffset(0.dp, 4.dp)
+                                )
+                            )
                             .size(324.dp, 64.dp)
-                            .clip(RoundedCornerShape(20.dp)),
+                            .clip(RoundedCornerShape(20.dp)
+                            ),
                         colors = CardDefaults.cardColors(containerColor = White)
                     ) {
                         Row(
@@ -408,28 +421,21 @@ fun MenuScreen() {
                             horizontalArrangement = Arrangement.SpaceEvenly,
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            IconButton(onClick = {}) {
+                            IconButton(onClick = {  }) {
                                 Icon(
                                     painterResource(R.drawable.main),
                                     contentDescription = "",
                                     tint = Black
                                 )
                             }
-                            IconButton(onClick = {
-                                context.startActivity(
-                                    Intent(
-                                        context,
-                                        Reward::class.java
-                                    )
-                                )
-                            }) {
+                            IconButton(onClick = { context.startActivity(Intent(context, Reward::class.java)) }) {
                                 Icon(
                                     painterResource(R.drawable.gift),
                                     contentDescription = "",
                                     tint = GreyLighter
                                 )
                             }
-                            IconButton(onClick = {}) {
+                            IconButton(onClick = { context.startActivity(Intent(context, OrderHistory::class.java)) }) {
                                 Icon(
                                     painterResource(R.drawable.newcheck),
                                     contentDescription = "",
