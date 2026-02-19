@@ -21,7 +21,6 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.Coffee">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,6 +36,10 @@
         <activity android:name=".presentation.auth.OrderOptionsCap"/>
         <activity android:name=".presentation.auth.Designer"/>
         <activity android:name=".presentation.auth.Barista"/>
+        <activity android:name=".presentation.auth.MyOrder"/>
+        <activity android:name=".presentation.auth.Confirmation"/>
+        <activity android:name=".presentation.auth.MyOrderCurrent"/>
+        <activity android:name=".presentation.auth.OrderHistory"/>
     </application>
 
 </manifest>

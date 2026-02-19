@@ -92,7 +92,8 @@ fun Cappuccino() {
                 fontSize = 16.sp
             )
             IconButton(
-                onClick = {}, modifier = Modifier.size(24.dp)
+                onClick = { context.startActivity(Intent(context, MyOrderCurrent::class.java)) },
+                modifier = Modifier.size(24.dp)
             ) {
                 Icon(
                     painterResource(R.drawable.cart), contentDescription = ""
@@ -481,7 +482,7 @@ fun Cappuccino() {
                     horizontalArrangement = Arrangement.End
                 ) {
                     IconButton(
-                        onClick = {}, modifier = Modifier
+                        onClick = { context.startActivity(Intent(context, Designer::class.java)) }, modifier = Modifier
                             .size(16.dp)
                     ) {
                         Icon(
@@ -515,7 +516,7 @@ fun Cappuccino() {
         }
         Spacer(Modifier.padding(bottom = 15.dp))
         Button(
-            onClick = {},
+            onClick = { context.startActivity(Intent(context, MyOrder::class.java)) },
             modifier = Modifier
                 .fillMaxWidth()
                 .size(46.dp)
